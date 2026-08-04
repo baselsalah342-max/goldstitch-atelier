@@ -395,3 +395,52 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Intro stitching */
+.intro-emblem :is(path, circle) {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: stitchDraw 3s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
+  filter: drop-shadow(0 0 12px rgba(176, 141, 87, 0.28));
+}
+
+.intro-emblem .embroidery-line {
+  opacity: 0.92;
+  stroke-width: 1.4;
+  animation: emblemGlow 0.7s ease 3.4s both;
+}
+
+.intro-emblem.intro-static :is(path, circle) {
+  stroke-dashoffset: 0;
+  animation: none;
+}
+
+.intro-emblem.intro-static .embroidery-line {
+  animation: none;
+}
+
+@keyframes emblemGlow {
+  0% {
+    opacity: 0.62;
+  }
+  60% {
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(176, 141, 87, 0.45));
+  }
+  100% {
+    opacity: 0.95;
+  }
+}
+
+.product-emblem {
+  opacity: 0.62;
+  filter: drop-shadow(0 0 18px rgba(176, 141, 87, 0.16));
+}
+
+.group:hover .product-emblem {
+  opacity: 0.78;
+}
+
+article:hover {
+  border-color: rgba(212, 180, 131, 0.34) !important;
+}
