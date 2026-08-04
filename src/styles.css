@@ -6,7 +6,7 @@
 
 /*
  * AURION design system.
- * Ink black, burgundy atmosphere, antique gold thread, bone text.
+ * Pure ink black, antique gold thread, bone text.
  */
 
 @theme inline {
@@ -55,8 +55,8 @@
   --radius: 1.4rem;
 
   --ink: oklch(0.145 0.005 60);
-  --burgundy: oklch(0.226 0.086 18);
-  --burgundy-light: oklch(0.288 0.104 19);
+  --burgundy: oklch(0.24 0.045 78);
+  --burgundy-light: oklch(0.32 0.058 80);
   --gold: oklch(0.664 0.075 74);
   --gold-light: oklch(0.784 0.06 78);
   --bone: oklch(0.914 0.014 88);
@@ -101,7 +101,7 @@
 
   body {
     background:
-      radial-gradient(circle at 50% 0%, rgba(92, 22, 32, 0.32), transparent 38rem),
+      radial-gradient(circle at 50% 0%, rgba(176, 141, 87, 0.20), transparent 38rem),
       linear-gradient(180deg, #0a0908 0%, #0a0908 100%);
     background-color: #0a0908;
     color: var(--color-bone);

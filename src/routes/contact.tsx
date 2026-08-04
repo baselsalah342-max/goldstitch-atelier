@@ -62,7 +62,7 @@ function Contact() {
           minHeight: "100svh",
           padding: "9rem var(--page-padding) 4rem",
           background:
-            "radial-gradient(circle at 20% 10%, rgba(92,22,32,0.28), transparent 28rem), #0a0908",
+            "radial-gradient(circle at 20% 10%, rgba(176,141,87,0.16), transparent 28rem), #0a0908",
         }}
       >
         <SerpentMotif className="pointer-events-none absolute -bottom-24 -right-16 hidden h-[34rem] w-[34rem] opacity-25 lg:block" />
