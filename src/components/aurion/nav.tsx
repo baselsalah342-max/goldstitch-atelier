@@ -49,7 +49,7 @@ export function Nav() {
 
         <div className="hidden items-center gap-9 md:flex">
           {links.map((l) => (
-            <Link key={l.label} to={l.to} hash={l.hash} className="nav-link">
+            <Link key={l.label} to={l.to} {...(l.hash ? { hash: l.hash } : {})} className="nav-link">
               {l.label}
             </Link>
           ))}
@@ -72,7 +72,7 @@ export function Nav() {
             <Link
               key={l.label}
               to={l.to}
-              hash={l.hash}
+              {...(l.hash ? { hash: l.hash } : {})}
               onClick={() => setOpen(false)}
               className="font-display text-4xl font-light text-bone"
             >
