@@ -16,10 +16,10 @@ export function Intro({ onDone }: { onDone: () => void }) {
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
     const short = window.sessionStorage.getItem("aurion-intro-seen") === "1";
+    setReduced(mq.matches || short);
     window.sessionStorage.setItem("aurion-intro-seen", "1");
-    const total = mq.matches || short ? 1200 : FULL_DURATION;
+    const total = mq.matches || short ? 1400 : FULL_DURATION;
     const t = window.setTimeout(finish, total);
 
     const onKey = (e: KeyboardEvent) => {
@@ -32,14 +32,6 @@ export function Intro({ onDone }: { onDone: () => void }) {
     };
   }, [finish]);
 
-  const draw = reduced
-    ? undefined
-    : {
-        strokeDasharray: 1400,
-        strokeDashoffset: 1400,
-        animation: "stitchDraw 3s cubic-bezier(0.65,0,0.35,1) 0.4s forwards",
-      };
-
   return (
     <div
       onClick={finish}
@@ -47,34 +39,11 @@ export function Intro({ onDone }: { onDone: () => void }) {
       style={{
         transform: leaving ? "translateY(-100%)" : "translateY(0)",
         opacity: leaving ? 0 : 1,
-        transition:
-          "transform 0.9s cubic-bezier(0.76,0,0.24,1), opacity 0.6s ease",
+        transition: "transform 0.9s cubic-bezier(0.76,0,0.24,1), opacity 0.6s ease",
       }}
     >
-      <div
-        className="relative"
-        style={{
-          opacity: 0,
-          animation: reduced
-            ? "emblemFill 0.4s ease forwards"
-            : "emblemFill 0.7s ease 3.4s forwards",
-        }}
-      >
-        <CrestMotif className="h-[clamp(11rem,32vw,17rem)] w-[clamp(11rem,32vw,17rem)] [&_.embroidery-line]:opacity-100 [&_path]:[filter:drop-shadow(0_0_12px_rgba(176,141,87,0.28))] [&_circle]:[filter:drop-shadow(0_0_12px_rgba(176,141,87,0.28))]" />
-        <CrestMotif
-          className="absolute inset-0 [&_.embroidery-line]:opacity-100 [&_.embroidery-line]:[stroke-width:1.4]"
-          {...({} as object)}
-        />
-        {!reduced && (
-          <style>{`
-            .aurion-intro-hidden { display: none; }
-          `}</style>
-        )}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={draw ? undefined : undefined}
-        />
+      <div className={reduced ? "intro-emblem intro-static" : "intro-emblem"}>
+        <CrestMotif className="h-[clamp(11rem,32vw,17rem)] w-[clamp(11rem,32vw,17rem)]" />
       </div>
 
       <h1
@@ -116,8 +85,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
           aria-hidden
           className="mt-8 block h-16 w-px origin-top"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(176,141,87,0.8), transparent)",
+            background: "linear-gradient(180deg, rgba(176,141,87,0.8), transparent)",
             transform: "scaleY(0)",
             animation: "threadDrop 0.5s cubic-bezier(0.76,0,0.24,1) 5.05s forwards",
           }}

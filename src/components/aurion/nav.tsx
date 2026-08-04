@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-const links = [
+const links: Array<{ label: string; to: string; hash?: string }> = [
   { label: "Collection", to: "/", hash: "collection" },
   { label: "Lookbook", to: "/", hash: "collection" },
-  { label: "Contact", to: "/contact", hash: undefined },
+  { label: "Contact", to: "/contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
