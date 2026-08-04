@@ -83,7 +83,7 @@ function Hero() {
       style={{
         padding: "8rem var(--page-padding) 4rem",
         background:
-          "radial-gradient(circle at 50% 0%, rgba(92,22,32,0.36), transparent 34rem), radial-gradient(circle at 80% 40%, rgba(176,141,87,0.06), transparent 24rem), #0a0908",
+          "radial-gradient(circle at 50% 0%, rgba(176,141,87,0.18), transparent 34rem), radial-gradient(circle at 80% 40%, rgba(176,141,87,0.06), transparent 24rem), #0a0908",
       }}
     >
       <CrestMotif
@@ -235,7 +235,7 @@ function Collection() {
               style={{
                 aspectRatio: "4 / 5",
                 background:
-                  "radial-gradient(circle at 50% 35%, rgba(92,22,32,0.58), transparent 58%), linear-gradient(145deg, #11100f, #0a0908)",
+                  "radial-gradient(circle at 50% 35%, rgba(176,141,87,0.22), transparent 58%), linear-gradient(145deg, #11100f, #0a0908)",
                 boxShadow:
                   "inset 0 0 80px rgba(0,0,0,0.65), 0 24px 80px rgba(0,0,0,0.28)",
               }}
